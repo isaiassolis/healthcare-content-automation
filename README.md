@@ -1,108 +1,123 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1220,50:12395D,100:087F8C&height=205&section=header&text=Healthcare%20Content%20Automation&fontSize=33&fontColor=ffffff&desc=Case%20Study%20%7C%20Automation%20%7C%20Applied%20AI&descAlignY=66&animation=fadeIn" width="100%" alt="Healthcare Content Automation — automatización editorial para el sector salud" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1220,50:12395D,100:087F8C&height=205&section=header&text=Healthcare%20Content%20Automation&fontSize=33&fontColor=ffffff&desc=Automation%20%7C%20Applied%20AI%20%7C%20Clinical%20Review&descAlignY=66&animation=fadeIn" width="100%" alt="Healthcare Content Automation — automatización editorial con revisión clínica"/>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Pilot%20%2F%20integration%20tests-087F8C?style=for-the-badge" alt="Piloto y pruebas de integración" />
-  <img src="https://img.shields.io/badge/n8n-Automation-EA4B71?style=for-the-badge&logo=n8n&logoColor=white" alt="n8n" />
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Status-Operational%20%7C%20Evolving-087F8C?style=for-the-badge" alt="Solución operativa en evolución"/>
+  <img src="https://img.shields.io/badge/n8n-3%20Workflows-EA4B71?style=for-the-badge&logo=n8n&logoColor=white" alt="Tres flujos n8n"/>
+  <img src="https://img.shields.io/badge/AI-LLM%20Assisted-12395D?style=for-the-badge" alt="IA generativa"/>
+  <img src="https://img.shields.io/badge/Python-Pillow-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python y Pillow"/>
 </p>
 
 # Automatización de contenidos especializados para el sector salud
 
-**Automatización de procesos · Integración de herramientas · Desarrollo de pilotos tecnológicos**
+**Diseño de solución · n8n · Inteligencia artificial aplicada · Flujos editoriales con supervisión clínica**
 
-Este proyecto reúne el trabajo realizado en un **piloto de automatización editorial** orientado a investigar, organizar y preparar contenidos informativos para comunicación digital en el sector salud.
+Diseñé e integré un **sistema de automatización editorial para el sector salud**, organizado en **tres flujos de trabajo con n8n**. La solución conecta investigación de contenidos, elaboración asistida de notas e ilustraciones, y tres momentos de decisión y aprobación por parte del **personal clínico**.
 
-La idea fue explorar cómo aprovechar herramientas de automatización y procesamiento para **reducir tareas repetitivas**, facilitar la organización de fuentes y preparar materiales para revisión, sin sustituir el criterio de las personas responsables de aprobar el contenido.
+**El proyecto continúa en funcionamiento** y se encuentra en evolución, con planes de ampliación hacia **nuevos clientes y áreas**.
 
-El caso se presenta de forma anónima y se concentra en las tecnologías, pruebas y decisiones de diseño que puedo compartir.
+El objetivo es ayudar a los equipos a preparar contenido informativo relevante y visualmente consistente, **sin delegar en la IA las decisiones médicas, editoriales ni la publicación final**.
 
 ## El desafío
 
-Preparar contenido informativo especializado requiere consultar fuentes, seleccionar temas pertinentes, revisar afirmaciones, organizar referencias y coordinar la producción de materiales.
+La comunicación especializada en salud requiere investigar temas pertinentes, contrastar información, elaborar borradores comprensibles y mantener criterios editoriales y visuales consistentes. Todo ello demanda tiempo del personal que también debe evaluar la relevancia y exactitud de lo que se publica.
 
-Cuando estas actividades se realizan en diferentes herramientas sin un flujo común, el trabajo puede volverse difícil de seguir.
+Diseñé una solución para automatizar las tareas de búsqueda, organización y preparación, manteniendo **aprobaciones humanas entre cada etapa**.
 
-El objetivo del piloto fue **conectar algunas de esas actividades mediante automatización**, conservando puntos de revisión humana antes de preparar o publicar información sanitaria.
+## Tres flujos que trabajan de forma coordinada
 
-## Herramientas y componentes
+### 1. Investigación, selección y priorización de temas
 
-Durante el piloto se trabajó con una combinación de orquestación, servicios locales y herramientas colaborativas.
+El primer flujo consulta **fuentes RSS**, recupera información relacionada con el área de interés, identifica los contenidos más relevantes y los **clasifica y organiza**.
 
-| Componente | Uso en el piloto |
-| --- | --- |
-| **n8n Community y Docker** | Configuración del entorno de automatización y orquestación de flujos. |
-| **Python y FastAPI** | Servicio local utilizado durante las pruebas de procesamiento e integración. |
-| **JavaScript** | Transformación y filtrado de información dentro de los flujos. |
-| **Pillow** | Pruebas de procesamiento y composición de imágenes. |
-| **Fuentes RSS** | Recuperación y filtrado de información. |
-| **Google Sheets y Drive** | Organización de materiales y apoyo al proceso de revisión. |
+Los temas encontrados se presentan al **personal clínico**, que determina cuáles son útiles, cuáles deben descartarse y qué observaciones deben considerarse antes de redactar.
 
-## Cómo planteamos el flujo editorial
+**Resultado:** temas seleccionados y observaciones aprobadas por el equipo clínico.
 
-La propuesta organizaba el trabajo desde la consulta de fuentes hasta la preparación del contenido para los canales autorizados.
+### 2. Redacción asistida por LLM y revisión médica
+
+El segundo flujo toma los temas aprobados y las observaciones del equipo para generar **borradores de notas informativas mediante un modelo de lenguaje**, incluyendo propuestas de **hashtags**.
+
+Los borradores regresan al personal médico, que puede:
+
+- Aprobar la nota.
+- Solicitar modificaciones o añadir observaciones.
+- Rechazar el contenido.
+
+Cuando se solicitan cambios, el flujo asistido por IA prepara una **nueva versión** e informa al equipo para su siguiente revisión. El proceso se repite hasta obtener la aprobación correspondiente.
+
+**Resultado:** notas y hashtags revisados y aprobados por el equipo médico.
+
+### 3. Concepto ilustrado y composición visual
+
+El tercer flujo recibe únicamente las **notas aceptadas** y genera una propuesta de **concepto visual asistido por LLM**.
+
+Integré **Python y Pillow** para construir materiales gráficos con un formato y una composición homogéneos. Esta combinación permite mantener reglas visuales explícitas y limitar la variabilidad de los resultados generativos, aunque las imágenes y afirmaciones siguen requiriendo revisión.
+
+La propuesta se presenta nuevamente al **cuerpo médico**, que puede aprobarla, rechazarla o solicitar modificaciones.
+
+**Resultado:** contenido escrito e ilustración aprobados.
+
+### Publicación final: decisión manual
+
+**La programación y publicación de las notas son manuales, por petición expresa del personal médico.** La automatización finaliza con los materiales aprobados y listos para su uso por los responsables del canal.
+
+## Arquitectura funcional
 
 ```mermaid
 flowchart TD
-  A[Fuentes seleccionadas] --> B[Recuperación y filtrado]
-  B --> C[Organización de referencias]
-  C --> D[Preparación de borradores]
-  D --> E{Revisión humana}
-  E -->|Cambios| D
-  E -->|Aprobación| F[Preparación del material]
-  F --> G[Revisión editorial final]
-  G --> H[Publicación autorizada]
+    RSS[Fuentes RSS] --> F1[Flujo 1: investigación y clasificación]
+    F1 --> C1{Selección del personal clínico}
+    C1 -->|Temas y observaciones aprobados| F2[Flujo 2: borrador LLM y hashtags]
+    C1 -->|Descartados| X[Se descartan]
+    F2 --> C2{Revisión de la nota}
+    C2 -->|Modificaciones| F2
+    C2 -->|Aprobada| F3[Flujo 3: concepto LLM y composición Pillow]
+    C2 -->|Rechazada| X
+    F3 --> C3{Revisión de imagen}
+    C3 -->|Modificaciones| F3
+    C3 -->|Rechazada| X
+    C3 -->|Aprobada| M[Material listo]
+    M --> P[Programación y publicación manual]
 ```
 
-Este diagrama muestra el **flujo de trabajo que buscamos construir**. Las pruebas realizadas se concentraron en componentes e integraciones específicas, no en una operación automatizada completa de extremo a extremo.
+## Tecnologías y herramientas
 
-[Conocer la arquitectura del piloto](docs/architecture.md).
+| Componente | Papel en el sistema |
+| --- | --- |
+| **n8n Community / Docker** | Orquestación de los tres flujos y sus decisiones. |
+| **RSS** | Investigación, recuperación y selección inicial de fuentes. |
+| **LLM** | Apoyo a redacción, revisión de borradores, hashtags y conceptos visuales. |
+| **Python / FastAPI** | Procesamiento e integración de servicios. |
+| **JavaScript** | Filtrado, clasificación y transformación de datos dentro de los flujos. |
+| **Pillow** | Composición de gráficos con criterios visuales uniformes. |
+| **Google Sheets / Drive** | Organización de materiales y colaboración. |
+| **Personal clínico** | Selección temática, revisión, correcciones y aprobación. |
 
-## Trabajo técnico realizado
+[Conocer la arquitectura y el flujo de aprobaciones](docs/architecture.md).
 
-Entre las actividades desarrolladas y probadas se encuentran:
+## Mi participación
 
-- Configuración de un entorno local de automatización con **n8n Community y Docker**.
-- Integración de flujos con un servicio local implementado mediante **FastAPI**.
-- Recuperación y filtrado de información procedente de fuentes **RSS**.
-- Procesamiento gráfico mediante **Python y Pillow**.
-- Organización de materiales y revisión con herramientas colaborativas.
+**Diseñé los tres flujos de n8n** y la estructura de interacción entre automatización, modelos de lenguaje y revisión clínica.
 
-Estas pruebas permitieron explorar la interacción entre herramientas con responsabilidades diferentes: recuperación de información, transformación de datos, procesamiento y revisión editorial.
+Trabajé en la investigación y clasificación de información desde RSS, la integración del proceso de aprobación de temas, la generación iterativa de notas y hashtags, y la preparación de conceptos gráficos mediante LLM y Pillow.
 
-## Decisiones de diseño
+Un principio central del diseño fue que **ningún contenido avance a la siguiente fase sin la decisión del equipo médico**.
 
-El piloto reforzó varias decisiones importantes para cualquier automatización de contenidos especializados:
+## Estado y evolución
 
-1. **Separar orquestación y procesamiento:** los flujos coordinan tareas, mientras los servicios especializados realizan transformaciones concretas.
-2. **Conservar la procedencia de la información:** las referencias ayudan a revisar y contextualizar los borradores.
-3. **Incluir revisión humana:** las afirmaciones sanitarias no deben difundirse automáticamente sin validación competente.
-4. **Probar integraciones por separado:** antes de ampliar un flujo conviene comprobar entradas, salidas y errores de cada componente.
-5. **Proteger la información:** los flujos y materiales del cliente deben permanecer fuera del repositorio público.
+La solución **está en funcionamiento**, con un proceso editorial supervisado de principio a fin. La siguiente etapa contempla **adaptarla para nuevos clientes y otras áreas de contenido**, conservando la separación de flujos y los controles de aprobación.
 
-## Mi experiencia con este caso
+La ampliación requerirá configurar fuentes, criterios de relevancia, instrucciones editoriales, formatos visuales y responsables de revisión para cada contexto.
 
-Este piloto forma parte de mi trabajo en **automatización de procesos, integración de servicios y exploración de herramientas de inteligencia artificial aplicada**.
-
-El principal aprendizaje fue abordar la automatización como un proceso de ingeniería: identificar tareas repetitivas, definir responsabilidades entre componentes, probar conexiones y mantener supervisión sobre los resultados.
-
-La experiencia no se presenta como un sistema clínico ni como una plataforma de publicación autónoma.
-
-## Evolución posible
-
-Me interesa explorar cómo evolucionar este enfoque hacia flujos más completos de investigación, preparación y revisión de contenidos.
-
-Entre las posibilidades futuras están el uso de **modelos de lenguaje, recuperación aumentada (RAG) y agentes**, sujetos a pruebas y criterios claros de calidad. Estos componentes no forman parte de las integraciones productivas documentadas en este piloto.
-
-[Consultar pruebas y aprendizajes](docs/validation-and-lessons.md).
+[Consultar aprendizajes y oportunidades de mejora](docs/validation-and-lessons.md).
 
 ## Sobre el proyecto
 
-Este repositorio comparte una descripción del piloto sin identificar al cliente ni publicar sus flujos originales, credenciales, documentos internos o información clínica.
+Este repositorio presenta la solución sin identificar al cliente actual ni divulgar sus documentos, flujos privados, credenciales o información sanitaria confidencial. **No es una aplicación de diagnóstico clínico**.
 
 ---
 
-<p align="center"><strong>Automatizar tareas repetitivas sin perder la responsabilidad editorial.</strong></p>
+<p align="center"><strong>Investigación, redacción e ilustración asistidas por IA; decisión y publicación bajo control humano.</strong></p>
 <p align="center"><a href="https://github.com/isaiassolis">Isaías Solís · Portafolio profesional</a></p>
