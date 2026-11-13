@@ -21,7 +21,7 @@ La producción de contenido de salud requiere identificar temas relevantes, cons
 
 **Objetivo del piloto:** explorar cómo automatizar pasos repetitivos del flujo editorial, manteniendo la evaluación humana de las afirmaciones relacionadas con salud.
 
-## 🧩 Enfoque de solución
+## Enfoque de solución
 
 Se trabajó con una combinación de orquestación, procesamiento y almacenamiento:
 
