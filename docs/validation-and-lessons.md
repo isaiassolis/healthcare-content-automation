@@ -1,46 +1,51 @@
-# Healthcare Content Automation — Pruebas y aprendizajes
+# Operación, aprendizajes y evolución del sistema
 
-## Pruebas de integración
+## Estado de la solución
 
-El piloto permitió explorar distintas partes del proceso de automatización editorial.
+El sistema editorial diseñado con **tres flujos n8n** continúa **en funcionamiento**. Está orientado a ampliar su uso hacia **nuevos clientes y otras áreas**.
 
-Entre las actividades realizadas se documentaron:
+El proceso mantiene aprobación humana en la selección de temas, la revisión de notas y la validación de conceptos ilustrados; la publicación es manual.
 
-- **n8n y FastAPI:** pruebas de conexión entre los flujos de automatización y un servicio local.
-- **Python y Pillow:** procesamiento y composición de imágenes en pruebas técnicas.
-- **Fuentes RSS:** recuperación y filtrado de información.
-- **Herramientas colaborativas:** organización y revisión de materiales.
+## Los tres flujos
 
-Estas actividades corresponden a **pruebas de componentes e integración**, no a la operación completa y continua de una plataforma de publicación.
+| Flujo | Resultado | Revisión humana |
+| --- | --- | --- |
+| **1. Investigación RSS** | Temas relevantes clasificados y organizados. | Selección de temas y observaciones. |
+| **2. Redacción LLM** | Borradores, hashtags y revisiones iterativas. | Aprobación, rechazo o ajustes del texto. |
+| **3. Concepto visual** | Propuesta ilustrada con apoyo de LLM y Pillow. | Aprobación, rechazo o ajustes visuales. |
 
-## Qué aprendimos
+## Aprendizajes de diseño
 
-### Diseñar antes de automatizar
+### La automatización debe permitir decisiones humanas
 
-Conviene definir qué recibe cada componente, qué debe producir y cómo se evaluará su resultado antes de integrar más herramientas.
+Separar el proceso en tres flujos hizo posible que el personal clínico tuviera control antes de que el contenido avanzara a la siguiente etapa.
 
-### Mantener separadas las funciones
+### Las observaciones deben alimentar la revisión
 
-La automatización ayuda a coordinar pasos repetitivos. El procesamiento especializado y la revisión de afirmaciones sanitarias necesitan responsabilidades y controles propios.
+Cuando el equipo solicita cambios, el sistema vuelve a preparar el material y avisa para su revisión. Esto facilita trabajar por iteraciones en lugar de depender de un único borrador.
 
-### Validar por etapas
+### La homogeneidad visual requiere reglas
 
-Una conexión exitosa entre dos herramientas es un avance técnico, pero no garantiza que todo el proceso editorial funcione de principio a fin. Las integraciones se deben probar gradualmente.
+Usar **Pillow** junto con un concepto propuesto mediante **LLM** ayuda a mantener estructuras visuales constantes. El control programático reduce variaciones de formato, pero no garantiza por sí solo la exactitud factual de una ilustración.
 
-### Conservar la revisión humana
+### Publicar manualmente es una decisión de producto
 
-La selección de fuentes, la verificación de información y la aprobación de materiales relacionados con salud requieren supervisión de personas competentes.
+El equipo médico decidió conservar bajo su control la programación y la publicación. Esa elección es parte del diseño actual, no una funcionalidad pendiente.
 
-## Próximos pasos posibles
+## Expansión a nuevos clientes y áreas
 
-- Documentar el flujo probado con ejemplos ficticios y sin datos privados.
-- Preparar una matriz de pruebas reproducibles y criterios de aceptación.
-- Revisar capturas de entornos de ensayo antes de cualquier publicación.
-- Medir tiempos y recursos si se decide evaluar beneficios operativos.
-- Estudiar la incorporación de IA generativa y recuperación documental con un proceso de validación explícito.
+La evolución del sistema contempla:
 
-## Confidencialidad
+- Personalizar fuentes RSS y criterios de relevancia por área.
+- Definir responsables de selección y aprobación para cada cliente.
+- Ajustar indicaciones editoriales, tono y formatos.
+- Mantener plantillas gráficas coherentes con cada identidad.
+- Incorporar seguimiento de revisiones y resultados conforme crezca la operación.
 
-El proyecto se presenta de manera anónima. La documentación pública no contiene flujos internos del cliente, información sanitaria privada, credenciales ni materiales de uso restringido.
+El sistema sigue activo; este documento no asigna cifras de rendimiento ni resultados comerciales que no se hayan medido.
+
+## Privacidad
+
+La documentación pública no incluye la identidad del cliente, materiales privados, credenciales ni información clínica personal.
 
 [← Volver al proyecto](../README.md)
