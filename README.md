@@ -15,7 +15,7 @@
 
 > **Aviso de alcance:** este repositorio describe actividades y pruebas técnicas; no contiene el código ni los flujos internos del cliente. No es un producto clínico, un sistema de apoyo al diagnóstico ni una demostración de operación integral en producción.
 
-## 🎯 El reto
+## El reto
 
 La producción de contenido de salud requiere identificar temas relevantes, consultar fuentes confiables, organizar referencias y someter los borradores a revisión antes de publicar. Un proceso enteramente manual puede fragmentar la información entre diversas herramientas y dificultar el seguimiento editorial.
 
@@ -36,7 +36,7 @@ Se trabajó con una combinación de orquestación, procesamiento y almacenamient
 
 **IA generativa, agentes y RAG:** son líneas de interés y exploración relacionadas con la evolución del proceso. Este caso **no afirma** que hubiera agentes autónomos o RAG en producción ni atribuye resultados a componentes no verificados.
 
-## 🔄 Flujo editorial conceptual
+## Flujo editorial conceptual
 
 ```mermaid
 flowchart TD
@@ -54,7 +54,7 @@ flowchart TD
 
 Para ver los componentes y límites de la implementación, consulta [arquitectura y flujo](docs/architecture.md).
 
-## 🧪 ¿Qué se ha documentado?
+## ¿Qué se ha documentado?
 
 **Actividades técnicas reportadas:**
 - Configuración de un entorno de automatización con n8n Community y Docker.
@@ -71,18 +71,18 @@ Para ver los componentes y límites de la implementación, consulta [arquitectur
 
 Consulta [validaciones y limitaciones](docs/validation-and-lessons.md).
 
-## 👨‍💻 Competencias ilustradas
+## Competencias ilustradas
 
 Este caso se presenta para explicar un proceso de **análisis de necesidades, diseño de flujo, integración de herramientas, pruebas técnicas y supervisión de resultados**. La documentación no pretende atribuir a una sola persona decisiones o entregables cuyo alcance de responsabilidad no ha sido validado.
 
-## 🔒 Privacidad y uso responsable
+## Privacidad y uso responsable
 
 - No se identifica al cliente ni se comparten documentos internos.
 - No se publican credenciales, endpoints privados, datos personales o clínicos.
 - No se reutilizan flujos originales sin revisión de su contenido y autorización.
 - Toda información sanitaria generada o sintetizada requiere revisión por una persona competente antes de difusión.
 
-## 📚 Documentación
+## Documentación
 
 - [Arquitectura y flujo conceptual](docs/architecture.md)
 - [Validaciones, límites y aprendizajes](docs/validation-and-lessons.md)
