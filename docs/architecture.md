@@ -1,50 +1,80 @@
-# Healthcare Content Automation — Arquitectura del piloto
+# Arquitectura — Automatización editorial para el sector salud
 
-## Objetivo
+## Diseño de la solución
 
-El piloto exploró cómo conectar herramientas de automatización, procesamiento de información y revisión editorial para apoyar la producción de contenidos informativos especializados en el sector salud.
+Diseñé una solución **operativa y en evolución**, organizada en **tres flujos n8n**. Cada flujo recibe entradas aprobadas por el personal clínico y produce información para la siguiente decisión humana.
 
-El trabajo comprendió **pruebas de integración entre componentes** y la definición de un flujo editorial que mantiene la revisión humana antes de la publicación.
+La programación y publicación final se realizan manualmente por decisión del equipo médico.
+
+## Flujo 1 — Investigación y clasificación
+
+**Entrada:** fuentes RSS y temas de interés del área clínica.
+
+**Procesamiento:** consulta, recuperación, filtrado, clasificación y organización de temas según su relevancia.
+
+**Control humano:** el personal clínico revisa la selección, acepta o descarta temas e incorpora observaciones.
+
+**Salida:** temas y observaciones aprobados para la redacción.
+
+## Flujo 2 — Redacción y revisión
+
+**Entrada:** temas aceptados y comentarios clínicos.
+
+**Procesamiento:** un **LLM** prepara borradores de notas y hashtags. Si recibe observaciones de revisión, genera una versión modificada e informa al equipo.
+
+**Control humano:** aprobación, rechazo o solicitud de cambios.
+
+**Salida:** notas aprobadas y sus hashtags.
+
+## Flujo 3 — Ilustración y composición
+
+**Entrada:** notas aprobadas.
+
+**Procesamiento:** el **LLM** propone el concepto visual; **Python y Pillow** ayudan a generar una composición homogénea y a aplicar reglas de presentación.
+
+**Control humano:** revisión del personal médico, con aceptación, rechazo o solicitud de ajustes.
+
+**Salida:** piezas escritas e ilustradas aprobadas.
+
+## Cierre manual
+
+La **programación y publicación** quedan bajo responsabilidad humana. No son el cuarto flujo ni una acción de publicación automática.
+
+## Vista de arquitectura
+
+```mermaid
+flowchart TD
+  A[RSS] --> B[n8n: búsqueda y clasificación]
+  B --> C{Aprobación de temas}
+  C -->|Aceptados| D[n8n + LLM: notas y hashtags]
+  D --> E{Aprobación de textos}
+  E -->|Modificar| D
+  E -->|Aprobados| F[n8n + LLM + Pillow: concepto gráfico]
+  F --> G{Aprobación visual}
+  G -->|Modificar| F
+  G -->|Aprobado| H[Material final aprobado]
+  H --> I[Programación y publicación manual]
+```
 
 ## Componentes tecnológicos
 
-| Capa | Herramienta | Función |
-| --- | --- | --- |
-| Orquestación | **n8n Community y Docker** | Coordinar tareas y conexiones. |
-| Procesamiento | **Python y FastAPI** | Servicio local probado durante la integración. |
-| Transformaciones | **JavaScript** | Normalización y filtrado de datos. |
-| Imágenes | **Pillow** | Procesamiento gráfico en pruebas. |
-| Fuentes | **RSS** | Recuperación y filtrado de información. |
-| Colaboración | **Google Sheets y Drive** | Organización y revisión de materiales. |
-| Validación editorial | **Revisión humana** | Evaluar pertinencia, precisión y aprobación. |
+| Tecnología | Función |
+| --- | --- |
+| **n8n Community y Docker** | Orquestación, conexiones y transiciones de los tres flujos. |
+| **RSS** | Recuperación de información y fuentes. |
+| **LLM** | Redacción, modificación de notas, hashtags y propuesta visual. |
+| **Python y FastAPI** | Integración de servicios y procesamiento. |
+| **JavaScript** | Filtrado y transformación de datos. |
+| **Pillow** | Composición y uniformidad de materiales gráficos. |
+| **Google Sheets y Drive** | Organización y revisión de información. |
 
-## Flujo de integración
+## Decisiones de ingeniería
 
-```mermaid
-flowchart LR
-  R[Fuentes RSS] --> N[n8n]
-  N <--> P[FastAPI / Python]
-  P --> I[Pillow]
-  N --> S[Organización de materiales]
-  S --> H{Revisión humana}
-  H -->|Ajustes| S
-  H -->|Aprobación| O[Preparación y publicación autorizada]
-```
-
-El esquema combina **integraciones ensayadas** con pasos del **proceso editorial previsto**. Su objetivo es explicar la organización de la solución, no describir una ejecución completa ya desplegada.
-
-## Criterios de diseño
-
-- **Responsabilidades claras:** la orquestación, el procesamiento y la revisión editorial cumplen funciones distintas.
-- **Trazabilidad:** conservar las referencias utilizadas para preparar materiales cuando el flujo lo permita.
-- **Control humano:** revisar las afirmaciones relacionadas con salud antes de divulgarlas.
-- **Integración progresiva:** comprobar cada conexión antes de incorporar nuevas etapas.
-- **Privacidad y seguridad:** mantener credenciales, datos de clientes y configuraciones sensibles fuera de los materiales públicos.
-
-## Evolución tecnológica
-
-La arquitectura podría incorporar más adelante **modelos de lenguaje, RAG o agentes** para asistir tareas de consulta y preparación, siempre que existan requisitos, pruebas y mecanismos de supervisión suficientes.
-
-El piloto documentado utiliza las herramientas descritas anteriormente; no incorpora una arquitectura productiva de agentes autónomos.
+- **Separación por responsabilidades:** investigar, redactar e ilustrar son procesos diferentes.
+- **Aprobación entre etapas:** los materiales avanzan solo cuando el personal clínico los acepta.
+- **Iteración controlada:** las correcciones vuelven al flujo correspondiente y se someten a nueva revisión.
+- **Consistencia visual:** utilizar Pillow y reglas de composición para reducir variaciones entre piezas.
+- **Publicación manual:** mantener la decisión editorial final fuera de la automatización.
+- **Expansión configurable:** adaptar fuentes, criterios y formatos a nuevos clientes y áreas.
 
 [← Volver al proyecto](../README.md)
